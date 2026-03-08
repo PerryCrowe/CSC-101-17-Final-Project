@@ -5,21 +5,110 @@ report2008 = Statistics(
     energy = {"BTUs per Square Foot": 79000,
               "Renewable Sources of Electricity": {
                 # [% of Cal Poly's Energy; Eligible as Renewable; Doesn't Emit Greenhouse Gases]
-                  "Biomass and Waste": [4.0,True,False],
-                  "Geothermal": [3.0,True,True],
-                  "Small Hydro": [3.0,True,True],
-                  "Solar": [1.0,True,True],
-                  "Wind": [2.0, True, True],
-                  "Large Hydro": [12.0,False,True],
-                  "Nuclear": [24.0,False,True],
-                  "Natural Gas": [49.0,False,False],
-                  "Coal": [2.0,False,False]},
+                  "Renewable": 13.0,
+                  #"Biomass and Waste": [4.0,True,False],
+                  #"Geothermal": [3.0,True,True],
+                  #"Small Hydro": [3.0,True,True],
+                  #"Solar": [1.0,True,True],
+                  #"Wind": [2.0, True, True],
+                  "Large Hydro": 12.0,
+                  "Nuclear": 24.0,
+                  "Natural Gas": 49.0,
+                  "Coal": 2.0,
+                  "Unspecified": 0.0},
               "% of Campus Vehicle Fleet Using Alternative Fuel":26.0},
-    transportation = {"Parking Permits per Student":5998, # Lower is considered better
+    transportation = {"Parking Permits per Student":0.31, # Lower is considered better. Not a %!
                       "% of Student Population Living on Campus":19.5,
                       "CP SLO Transit Riders per Year": 545000},
     water = {"Domestic Water Use": 550000, # acre-feet
              "Total Delivered Water": 950, # acre-feet
-             "Total Indoor Water Use": 90000},
+             "Total Indoor Water Use": 215}, # acre-feet
     waste = 70.0 # % Solid Waste Diverted from Landfill
+)
+
+report2010 = Statistics(
+    year = 2010,
+    energy = {"BTUs per Square Foot": 71000,
+              "Renewable Sources of Electricity": {
+                # [% of Cal Poly's Energy; Eligible as Renewable; Doesn't Emit Greenhouse Gases]
+                  "Renewable": 16.0,
+                  #"Biomass and Waste": [4.0,True,False],
+                  #"Geothermal": [4.0,True,True],
+                  #"Small Hydro": [4.0,True,True],
+                  #"Solar": [1.0,True,True],
+                  #"Wind": [3.0, True, True],
+                  "Large Hydro": 16.0,
+                  "Nuclear": 20.0,
+                  "Natural Gas": 47.0,
+                  "Coal": 1.0,
+                  "Unspecified": 0.0},
+              "% of Campus Vehicle Fleet Using Alternative Fuel":47.0},
+    transportation = {"Parking Permits per Student":0.22, # Lower is considered better. Not a %!
+                      "% of Student Population Living on Campus":33.0,
+                      "CP SLO Transit Riders per Year": 620000},
+    water = {"Domestic Water Use": 600, # acre-feet
+             "Total Delivered Water": 1200, # acre-feet
+             "Total Indoor Water Use": 310}, # acre-feet
+    waste = 53.0 # % Solid Waste Diverted from Landfill
+)
+
+report2012 = Statistics(
+    year = 2012,
+    energy = {"BTUs per Square Foot": 74000,
+              "Renewable Sources of Electricity": {
+                # [% of Cal Poly's Energy; Eligible as Renewable; Doesn't Emit Greenhouse Gases]
+                  "Renewable":        17.0,
+                  #"Biomass and Waste": [4.0,True,False],
+                  #"Geothermal":        [5.0,True,True],
+                  #"Small Hydro":       [3.0,True,True],
+                  #"Solar":             [1.0,True,True],
+                  #"Wind":              [4.0, True, True],
+                  "Large Hydro":      16.0,
+                  "Nuclear":          24.0,
+                  "Natural Gas":      20.0,
+                  "Coal":              1.0,
+                  "Unspecified":      24.0},
+              "% of Campus Vehicle Fleet Using Alternative Fuel":45.0},
+    transportation = {"Parking Permits per Student":0.20, # Lower is considered better. Not a %!
+                      "% of Student Population Living on Campus":43.0,
+                      "CP SLO Transit Riders per Year": 665000},
+    water = {"Domestic Water Use": 550, # acre-feet
+             "Total Delivered Water": 1060, # acre-feet
+             "Total Indoor Water Use": 290}, # acre-feet
+    waste = 80.0 # % Solid Waste Diverted from Landfill
+)
+
+report2014 = Statistics(
+    year = 2014,
+    energy = {"BTUs per Square Foot": 650000,
+              "Renewable Sources of Electricity": None,
+              "% of Campus Vehicle Fleet Using Alternative Fuel":32.0},
+    transportation = {"Parking Permits per Student":0.22, # Lower is considered better. Not a %!
+                      "% of Student Population Living on Campus":37.5,
+                      "CP SLO Transit Riders per Year": 670000},
+    water = {"Domestic Water Use": 705, # acre-feet
+             "Total Delivered Water": 1180, # acre-feet
+             "Total Indoor Water Use": 260}, # acre-feet
+    waste = 71.0 # % Solid Waste Diverted from Landfill
+)
+
+report2016 = Statistics(
+    year = 2012,
+    energy = {"BTUs per Square Foot": 58000,
+              "Renewable Sources of Electricity": {
+                # [% of Cal Poly's Energy; Eligible as Renewable; Doesn't Emit Greenhouse Gases]
+                  "Renewable":        30.0,
+                  "Large Hydro":       6.0,
+                  "Nuclear":          23.0,
+                  "Natural Gas":      25.0,
+                  "Coal":              0.0,
+                  "Unspecified":      17.0},
+              "% of Campus Vehicle Fleet Using Alternative Fuel":28.0},
+    transportation = {"Parking Permits per Student":0.18, # Lower is considered better. Not a %!
+                      "% of Student Population Living on Campus":35.0,
+                      "CP SLO Transit Riders per Year": 759102},
+    water = {"Domestic Water Use": 452, # acre-feet
+             "Total Delivered Water": 974, # acre-feet
+             "Total Indoor Water Use": 210}, # acre-feet
+    waste = 80.0 # % Solid Waste Diverted from Landfill
 )
