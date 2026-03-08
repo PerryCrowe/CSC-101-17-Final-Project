@@ -1,7 +1,7 @@
 
 from class_file import Statistics
 
-
+# Organize data based on the year
 def filter_by_year(data: [Statistics], year: int) -> [Statistics]:
     result = []
     for statistics in data:
@@ -9,11 +9,19 @@ def filter_by_year(data: [Statistics], year: int) -> [Statistics]:
             result.append(statistics)
 
 
+# To add all the data of energy based on the year/years described
 def energy_total (total:[Statistics],year:int) -> [Statistics]:
     total = 0
     for statistics in total:
         total += statistics.energy
     return total
+
+def water_total (total:[Statistics],year:int) -> [Statistics]:
+    total = 0
+    for statistics in total:
+        total += statistics.water
+    return total
+
 
 
 def waste_is_decreasing(year1: list[Statistics.year], year2=list[Statistics], key: int, value:str) -> bool:
