@@ -93,7 +93,7 @@ report2014 = Statistics(
 )
 
 report2016 = Statistics(
-    year = 2012,
+    year = 2016,
     energy = {"BTUs per Square Foot": 58000,
               "Renewable Sources of Electricity": {
                 # [% of Cal Poly's Energy; Eligible as Renewable; Doesn't Emit Greenhouse Gases]
@@ -110,5 +110,26 @@ report2016 = Statistics(
     water = {"Domestic Water Use": 452, # acre-feet
              "Total Delivered Water": 974, # acre-feet
              "Total Indoor Water Use": 210}, # acre-feet
-    waste = 80.0 # % Solid Waste Diverted from Landfill
+    waste = 89.8
+)
+
+report2018 = Statistics(
+    year = 2018,
+    energy = {"BTUs per Square Foot": 57000,
+              "Renewable Sources of Electricity": {
+                # [% of Cal Poly's Energy; Eligible as Renewable; Doesn't Emit Greenhouse Gases]
+                  "Renewable":        33.0,
+                  "Large Hydro":      18.0,
+                  "Nuclear":          27.0,
+                  "Natural Gas":      20.0,
+                  "Coal":              0.0,
+                  "Unspecified":       2.0},
+              "% of Campus Vehicle Fleet Using Alternative Fuel":29.0},
+    transportation = {"Parking Permits per Student":0.19, # Lower is considered better. Not a %!
+                      "% of Student Population Living on Campus":33.0,
+                      "CP SLO Transit Riders per Year": 724647},
+    water = {"Domestic Water Use": 507, # acre-feet
+             "Total Delivered Water": 830, # acre-feet
+             "Total Indoor Water Use": 270}, # acre-feet
+    waste = 86.4
 )
