@@ -1,4 +1,3 @@
-import statistics
 
 from class_file import Statistics
 
@@ -10,8 +9,16 @@ def filter_by_year(data: [Statistics], year: int) -> [Statistics]:
             result.append(statistics)
 
 
-def is_increasing(year1: list[Statistics], year2:list[Statistics], key: int, value:str) -> bool:
-    year1 = Statistics.year
+def energy_total (total:[Statistics],year:int) -> [Statistics]:
+    total = 0
+    for statistics in total:
+        total += statistics.energy
+    return total
+
+
+def waste_is_decreasing(year1: list[Statistics.year], year2=list[Statistics], key: int, value:str) -> bool:
+    result = ''
+    year1 = Statistics.year1
     year2 = Statistics.year
     if year1 < year2:
         year1 == year1
@@ -21,15 +28,18 @@ def is_increasing(year1: list[Statistics], year2:list[Statistics], key: int, val
         year2 == year1
 
     for year in range(year1, year2):
-        if
+        if year1 > year2:
+            result['Cal Poly has decreased waste management since ', [year1]].append(key)
+        else:
+            result['Cal Poly needs to have more effort for waste management.'].append(key)
+
+    return result
 
 
 
 
-    for statistics in year:
-        if statistics.year
+
+
 #total reneawable source of electricity
 #if idx 1 is true
-
-#comparision from 1 year to another year and see increase of specific dataclasses
 

@@ -1,4 +1,4 @@
-import
+
 class Statistics:
     # Initializing a new Statistics object
     # input: Cal Poly's water usage data as a dictionary
