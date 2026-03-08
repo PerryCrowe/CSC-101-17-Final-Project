@@ -1,6 +1,7 @@
 from class_file import Statistics
 
 report2008 = Statistics(
+    year = 2008,
     energy = {"BTUs per Square Foot": 79000,
               "Renewable Sources of Electricity": {
                 # [% of Cal Poly's Energy; Eligible as Renewable; Doesn't Emit Greenhouse Gases]
@@ -14,10 +15,11 @@ report2008 = Statistics(
                   "Natural Gas": [49.0,False,False],
                   "Coal": [2.0,False,False]},
               "% of Campus Vehicle Fleet Using Alternative Fuel":26.0},
-    transportation = {"Parking Permits per Student":5998,
-                      "% of Student Population Living on Campus":19.5}
-
+    transportation = {"Parking Permits per Student":5998, # Lower is considered better
+                      "% of Student Population Living on Campus":19.5,
+                      "CP SLO Transit Riders per Year": 545000},
+    water = {"Domestic Water Use": 550000, # acre-feet
+             "Total Delivered Water": 950, # acre-feet
+             "Total Indoor Water Use": 90000},
+    waste = 70.0 # % Solid Waste Diverted from Landfill
 )
-
-if dictionary[i][1] == true:
-    += dictionary[1][0]
