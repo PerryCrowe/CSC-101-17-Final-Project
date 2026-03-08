@@ -1,4 +1,4 @@
-
+import
 class Statistics:
     # Initializing a new Statistics object
     # input: Cal Poly's water usage data as a dictionary
@@ -8,22 +8,22 @@ class Statistics:
     # input: Cal Poly's sustainability data year as an integer
 
     def __init__(self,
+                 year: int,
                  water:dict[str,float],
-                 energy:dict[str,float],
+                 energy:dict[str, float],
                  transportation:dict[str,float],
-                 waste:dict[str,float],
-                 year:int):
+                 waste:float):
+        self.year = year
         self.water = water
         self.energy = energy
         self.transportation = transportation
         self.waste = waste
-        self.year = year
 
     def __repr__(self):
         return 'Statistics({},{},{},{},{})'.format(
+            self.year,
             self.water,
             self.energy,
             self.transportation,
-            self.waste,
-            self.year
+            self.waste
         )
