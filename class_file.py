@@ -1,3 +1,4 @@
+#import
 
 class Statistics:
     # Initializing a new Statistics object
@@ -10,7 +11,7 @@ class Statistics:
     def __init__(self,
                  year: int,
                  water:dict[str,float],
-                 energy:dict[str, float],
+                 energy:dict[str, float | dict[str,float]],
                  transportation:dict[str,float],
                  waste:float):
         self.year = year
