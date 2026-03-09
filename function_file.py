@@ -81,6 +81,9 @@ def is_increasing(set1: Statistics, set2: Statistics, domain: str, key: str) -> 
                 return True
             else:
                 return False
+        else:
+            print("Invalid Key.")
+            return None
 
 
     elif domain.lower() == "water":
@@ -102,6 +105,9 @@ def is_increasing(set1: Statistics, set2: Statistics, domain: str, key: str) -> 
                 return True
             else:
                 return False
+        else:
+            print("Invalid Key.")
+            return None
 
 
     elif domain.lower() == "transportation":
@@ -122,7 +128,9 @@ def is_increasing(set1: Statistics, set2: Statistics, domain: str, key: str) -> 
                     return True
                 else:
                     return False
-
+            else:
+                print("Invalid Key.")
+                return None
 
     else:
         if set1.waste < set2.waste:
