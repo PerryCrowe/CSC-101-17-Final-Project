@@ -3,7 +3,7 @@ from class_file import Statistics
 report2008 = Statistics(
     year = 2008,
     energy = {"BTUs per Square Foot": 79000,
-              "Renewable Sources of Electricity": {
+              "Sources of Electricity": {
                 # [% of Cal Poly's Energy; Eligible as Renewable; Doesn't Emit Greenhouse Gases]
                   "Renewable": 13.0,
                   #"Biomass and Waste": [4.0,True,False],
@@ -29,7 +29,7 @@ report2008 = Statistics(
 report2010 = Statistics(
     year = 2010,
     energy = {"BTUs per Square Foot": 71000,
-              "Renewable Sources of Electricity": {
+              "Sources of Electricity": {
                 # [% of Cal Poly's Energy; Eligible as Renewable; Doesn't Emit Greenhouse Gases]
                   "Renewable": 16.0,
                   #"Biomass and Waste": [4.0,True,False],
@@ -55,7 +55,7 @@ report2010 = Statistics(
 report2012 = Statistics(
     year = 2012,
     energy = {"BTUs per Square Foot": 74000,
-              "Renewable Sources of Electricity": {
+              "Sources of Electricity": {
                 # [% of Cal Poly's Energy; Eligible as Renewable; Doesn't Emit Greenhouse Gases]
                   "Renewable":        17.0,
                   #"Biomass and Waste": [4.0,True,False],
@@ -81,7 +81,7 @@ report2012 = Statistics(
 report2014 = Statistics(
     year = 2014,
     energy = {"BTUs per Square Foot": 650000,
-              "Renewable Sources of Electricity": None,
+              "Sources of Electricity": None,
               "% of Campus Vehicle Fleet Using Alternative Fuel":32.0},
     transportation = {"Parking Permits per Student":0.22, # Lower is considered better. Not a %!
                       "% of Student Population Living on Campus":37.5,
@@ -95,7 +95,7 @@ report2014 = Statistics(
 report2016 = Statistics(
     year = 2016,
     energy = {"BTUs per Square Foot": 58000,
-              "Renewable Sources of Electricity": {
+              "Sources of Electricity": {
                 # [% of Cal Poly's Energy; Eligible as Renewable; Doesn't Emit Greenhouse Gases]
                   "Renewable":        30.0,
                   "Large Hydro":       6.0,
@@ -116,7 +116,7 @@ report2016 = Statistics(
 report2018 = Statistics(
     year = 2018,
     energy = {"BTUs per Square Foot": 57000,
-              "Renewable Sources of Electricity": {
+              "Sources of Electricity": {
                 # [% of Cal Poly's Energy; Eligible as Renewable; Doesn't Emit Greenhouse Gases]
                   "Renewable":        33.0,
                   "Large Hydro":      18.0,
