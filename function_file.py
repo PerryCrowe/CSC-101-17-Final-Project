@@ -140,4 +140,7 @@ def is_increasing(set1: Statistics, set2: Statistics, domain: str, key: str) -> 
 
 
 
-
+# --- to add: "def new_data( )"? Would be a very long input, unless we tailored the prompt... ---
+def new_data():
+    print("Please confirm the file you desire the data to be written to is in the same directory as this file.")
+    input("Y/N:")
