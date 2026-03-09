@@ -49,11 +49,45 @@ def is_increasing(set1: Statistics, set2: Statistics, domain: str, key: str) -> 
                 return True
             else:
                 return False
+
     elif domain.lower() == "water":
-        # ---- To add: similar checks to the above for water and transportation ----
+        if key.lower() == "Domestic Water Use":
+            if set1.water.get("Domestic Water Use") < set2.water.get(
+                    "Domestic Water Use"):
+                return True
+            else:
+                return False
+        elif key.lower() == "Total Delivered Water":
+            if (set1.water.get("Total Delivered Water") <
+                    set2.water.get("Total Delivered Water")):
+                return True
+            else:
+                return False
+        elif key.lower() == "Total Indoor Water Use":
+            if (set1.water.get("Total Indoor Water Use") <
+                    set2.water.get("Total Indoor Water Use")):
+                return True
+            else:
+                return False
 
     elif domain.lower() == "transportation":
-
+            if key.lower() == "Parking Permits per Student":
+                if set1.transportation.get("Parking Permits per Student") < set2.transportation.get("Parking Permits per Student"):
+                    return True
+                else:
+                    return False
+            elif key.lower() == "% of Student Population Living on Campus":
+                if (set1.transportation.get("% of Student Population Living on Campus") <
+                        set2.transportation.get("% of Student Population Living on Campus")):
+                    return True
+                else:
+                    return False
+            elif key.lower() == "CP SLO Transit Riders per Year":
+                if (set1.transportation.get("CP SLO Transit Riders per Year") <
+                        set2.transportation.get("CP SLO Transit Riders per Year")):
+                    return True
+                else:
+                    return False
 
     else:
         if set1.waste < set2.waste:
@@ -63,11 +97,4 @@ def is_increasing(set1: Statistics, set2: Statistics, domain: str, key: str) -> 
 
 
 
-
-    for statistics in year:
-        if statistics.year
-#total reneawable source of electricity
-#if idx 1 is true
-
-#comparision from 1 year to another year and see increase of specific dataclasses
 
