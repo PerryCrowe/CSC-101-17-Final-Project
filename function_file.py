@@ -36,19 +36,52 @@ def is_increasing(set1: Statistics, set2: Statistics, domain: str, key: str) -> 
                 return True
             else:
                 return False
+
+# All sources of Energy
         elif key.lower() == "renewable sources of electricity":
             if (set1.energy.get("Renewable Sources of Electricity").get("Renewable") <
                     set2.energy.get("Renewable Sources of Electricity").get("Renewable")):
                 return True
             else:
                 return False
-        # ----   Should we add checks for the other energy types? And more general calls, like "nonrenewable"? ----
+        elif key.lower() == "renewable sources of electricity":
+            if (set1.energy.get("Renewable Sources of Electricity").get("Large Hydro") <
+                    set2.energy.get("Renewable Sources of Electricity").get("Large Hydro")):
+                return True
+            else:
+                return False
+        elif key.lower() == "renewable sources of electricity":
+            if (set1.energy.get("Renewable Sources of Electricity").get("Nuclear") <
+                    set2.energy.get("Renewable Sources of Electricity").get("Nuclear")):
+                return True
+            else:
+                return False
+        elif key.lower() == "renewable sources of electricity":
+            if (set1.energy.get("Renewable Sources of Electricity").get("Natural Gas") <
+                    set2.energy.get("Renewable Sources of Electricity").get("Natural Gas")):
+                return True
+            else:
+                return False
+        elif key.lower() == "renewable sources of electricity":
+            if (set1.energy.get("Renewable Sources of Electricity").get("Coal") <
+                    set2.energy.get("Renewable Sources of Electricity").get("Coal")):
+                return True
+            else:
+                return False
+        elif key.lower() == "renewable sources of electricity":
+            if (set1.energy.get("Renewable Sources of Electricity").get("Unspecified") <
+                    set2.energy.get("Renewable Sources of Electricity").get("Unspecified")):
+                return True
+            else:
+                return False
+
         elif key.lower() == "% of campus vehicle fleet using alternative fuel":
             if (set1.energy.get("% of Campus Fleet Using Alternative Fuel") <
                 set2.energy.get("% of Campus Fleet Using Alternative Fuel")):
                 return True
             else:
                 return False
+
 
     elif domain.lower() == "water":
         if key.lower() == "Domestic Water Use":
@@ -70,6 +103,7 @@ def is_increasing(set1: Statistics, set2: Statistics, domain: str, key: str) -> 
             else:
                 return False
 
+
     elif domain.lower() == "transportation":
             if key.lower() == "Parking Permits per Student":
                 if set1.transportation.get("Parking Permits per Student") < set2.transportation.get("Parking Permits per Student"):
@@ -88,6 +122,7 @@ def is_increasing(set1: Statistics, set2: Statistics, domain: str, key: str) -> 
                     return True
                 else:
                     return False
+
 
     else:
         if set1.waste < set2.waste:
