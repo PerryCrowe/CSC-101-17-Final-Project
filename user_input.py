@@ -1,4 +1,5 @@
 from dataset import reports_by_year
+from function_file import is_increasing
 
 def gather_data ():
     print("Would you like to compare two reports or look at one report?")
@@ -56,56 +57,73 @@ def gather_data ():
             print(report.waste)
 
 
-# # Two Comparison Years
-#     if ans.lower() == "two":
-#         year1 = int(input("Enter First Desired Year: "))
-#         year2 = int(input("Enter Second Desired Year: "))
-#         report1 = reports_by_year[year1]
-#         report2 = reports_by_year[year2]
-#         category = input("Enter category (energy, transportation, water, waste): ")
-#
-#         if category.lower () == "energy":
-#             print("BTUs per Square Foot, Sources of Electricity, or % of Campus Vehicle Fleet Using Alternative Fuel?")
-#             answer = input("")
-#
-#             if answer.lower() == "btus per square foot":
-#                 print(report.energy["BTUs per Square Foot"])
-#             elif answer.lower() == "% of campus vehicle fleet using alternative fuel":
-#                 print(report.energy["% of Campus Vehicle Fleet Using Alternative Fuel"])
-#             elif answer.lower() == "sources of electricity":
-#                 print ("Renewable, Large Hydro, Nuclear, Natural Gas, Coal, or Unspecified?")
-#                 sub = input("")
-#                 sources = report.energy["Sources of Electricity (print exactly):"]
-#                 if sub in sources:
-#                     print(sources[sub])
-#
-#
-#         if category.lower() == "transportation":
-#             print ("Parking Permits per Student, % of Student Population Living on Campus, or CP SLO Transit Riders per Year?")
-#             answer = input("")
-#
-#             if answer.lower() == "parking permits per student":
-#                 print(report.transportation["Parking Permits per Student"])
-#             elif answer.lower() == "% of student population living on campus":
-#                 print(report.transportation["% of Student Population Living on Campus"])
-#             elif answer.lower() == "cp slo transit riders per year":
-#                 print(report.transportation["CP SLO Transit Riders per Year"])
-#
-#
-#         if category.lower() == "water":
-#             print ("Domestic Water Use, Total Delivered Water, or Total Indoor Water Use?")
-#             answer = input("")
-#
-#             if answer.lower() == "domestic water use":
-#                 print( report.water["Domestic Water Use"])
-#             elif answer.lower() == "total delivered water":
-#                 print( report.water["Total Delivered Water"])
-#             elif answer.lower() == "total indoor water":
-#                 print( report.water["total indoor Water"])
-#
-#
-#         if category.lower() == "waste":
-#             print(report.waste)
+# Two Comparison Years
+    if ans.lower() == "two":
+        year1 = int(input("Enter First Desired Year: "))
+        year2 = int(input("Enter Second Desired Year: "))
+        report1 = reports_by_year[year1]
+        report2 = reports_by_year[year2]
+        category = input("Enter category (energy, transportation, water, waste): ")
+
+    #Energy Category
+        if category.lower () == "energy":
+            print("BTUs per Square Foot, Sources of Electricity, or % of Campus Vehicle Fleet Using Alternative Fuel?")
+            answer = input("")
+
+            if answer.lower() == "btus per square foot":
+                result = is_increasing(report1, report2, "energy", "BTUs per Square Foot")
+            elif answer.lower() == "% of campus vehicle fleet using alternative fuel":
+                result = is_increasing(report1, report2, "energy", "% of Campus Vehicle Fleet Using Alternative Fuel")
+            elif answer.lower() == "sources of electricity":
+                sub = input("Renewable, Large Hydro, Nuclear, Natural Gas, Coal, or Unspecified?")
+                result = is_increasing(report1, report2,"energy","Sources of Electricity", sub.title())
+
+            if result is True:
+                print("It increased.")
+            if result is False:
+                print("It did not increase.")
+
+    #Transportation Category
+        if category.lower() == "transportation":
+            print ("Parking Permits per Student, % of Student Population Living on Campus, or CP SLO Transit Riders per Year?")
+            answer = input("")
+
+            if answer.lower() == "parking permits per student":
+                result = is_increasing(report1, report2,"transportation","Parking Permits per Student")
+            elif answer.lower() == "% of student population living on campus":
+                result = is_increasing(report1, report2,"transportation","% of Student Population Living on Campus")
+            elif answer.lower() == "cp slo transit riders per year":
+                result = is_increasing(report1, report2,"transportation","CP SLO Transit Riders per Year")
+
+            if result is True:
+                print("It increased.")
+            if result is False:
+                print("It did not increase.")
+
+    #Water Category
+        if category.lower() == "water":
+            print ("Domestic Water Use, Total Delivered Water, or Total Indoor Water Use?")
+            answer = input("")
+
+            if answer.lower() == "domestic water use":
+                result = is_increasing(report1,report2,"water","Domestic Water Use")
+            elif answer.lower() == "total delivered water":
+                result = is_increasing(report1,report2,"water","Total Delivered Water")
+            elif answer.lower() == "total indoor water":
+                result = is_increasing(report1,report2,"water","Total Indoor Water")
+
+            if result is True:
+                print("It increased.")
+            if result is False:
+                print("It did not increase.")
+
+        if category.lower() == "waste":
+            result = is_increasing(report1,report2,"waste")
+
+            if result is True:
+                print("It increased.")
+            if result is False:
+                print("It did not increase.")
 
 
 
