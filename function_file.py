@@ -38,39 +38,39 @@ def is_increasing(set1: Statistics, set2: Statistics, domain: str, key: str) -> 
                 return False
 
 # All sources of Energy
-        elif key.lower() == "renewable sources of electricity":
-            if (set1.energy.get("Renewable Sources of Electricity").get("Renewable") <
-                    set2.energy.get("Renewable Sources of Electricity").get("Renewable")):
+        elif key.lower() == "sources of electricity":
+            if (set1.energy.get("Sources of Electricity").get("Renewable") <
+                    set2.energy.get("Sources of Electricity").get("Renewable")):
                 return True
             else:
                 return False
-        elif key.lower() == "renewable sources of electricity":
-            if (set1.energy.get("Renewable Sources of Electricity").get("Large Hydro") <
-                    set2.energy.get("Renewable Sources of Electricity").get("Large Hydro")):
+        elif key.lower() == "sources of electricity":
+            if (set1.energy.get("Sources of Electricity").get("Large Hydro") <
+                    set2.energy.get("Sources of Electricity").get("Large Hydro")):
                 return True
             else:
                 return False
-        elif key.lower() == "renewable sources of electricity":
-            if (set1.energy.get("Renewable Sources of Electricity").get("Nuclear") <
-                    set2.energy.get("Renewable Sources of Electricity").get("Nuclear")):
+        elif key.lower() == "sources of electricity":
+            if (set1.energy.get("Sources of Electricity").get("Nuclear") <
+                    set2.energy.get("Sources of Electricity").get("Nuclear")):
                 return True
             else:
                 return False
-        elif key.lower() == "renewable sources of electricity":
-            if (set1.energy.get("Renewable Sources of Electricity").get("Natural Gas") <
-                    set2.energy.get("Renewable Sources of Electricity").get("Natural Gas")):
+        elif key.lower() == "sources of electricity":
+            if (set1.energy.get("Sources of Electricity").get("Natural Gas") <
+                    set2.energy.get("Sources of Electricity").get("Natural Gas")):
                 return True
             else:
                 return False
-        elif key.lower() == "renewable sources of electricity":
-            if (set1.energy.get("Renewable Sources of Electricity").get("Coal") <
-                    set2.energy.get("Renewable Sources of Electricity").get("Coal")):
+        elif key.lower() == "sources of electricity":
+            if (set1.energy.get("Sources of Electricity").get("Coal") <
+                    set2.energy.get("Sources of Electricity").get("Coal")):
                 return True
             else:
                 return False
-        elif key.lower() == "renewable sources of electricity":
-            if (set1.energy.get("Renewable Sources of Electricity").get("Unspecified") <
-                    set2.energy.get("Renewable Sources of Electricity").get("Unspecified")):
+        elif key.lower() == "sources of electricity":
+            if (set1.energy.get("Sources of Electricity").get("Unspecified") <
+                    set2.energy.get("Sources of Electricity").get("Unspecified")):
                 return True
             else:
                 return False
@@ -142,5 +142,12 @@ def is_increasing(set1: Statistics, set2: Statistics, domain: str, key: str) -> 
 
 # --- to add: "def new_data( )"? Would be a very long input, unless we tailored the prompt... ---
 def new_data():
-    print("Please confirm the file you desire the data to be written to is in the same directory as this file.")
-    input("Y/N:")
+    print("Please confirm the file you want the data to be written to is in the same directory as this file.")
+    ans = input("Y/N:")
+    if ans.lower() == 'n':
+        f = open("data.txt","w")
+    elif ans.lower() == 'y':
+        ans = input("Please input the file name. (Case sensitive): ")
+        f = open(ans,"a")
+    else:
+        print("I can't read that.")
