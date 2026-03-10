@@ -1,3 +1,5 @@
+#Author: Perry
+
 from class_file import Statistics
 
 report2008 = Statistics(

@@ -1,3 +1,5 @@
+#Author: Perry
+
 from class_file import Statistics
 
 # Changes:
@@ -22,7 +24,7 @@ def filter_by_year(data: list[Statistics], year: int) -> Statistics:
         # to compare and the value within.
     # I'm also swapping "key" and "value" with "domain" and "key" just because key is technically a term for dictionaries
         # but if you want to swap them back, feel free!
-def is_increasing(set1: Statistics, set2: Statistics, domain: str, key: str) -> bool:
+def is_increasing(set1: Statistics, set2: Statistics, domain: str, key: str, sub:None) -> bool:
     year1 = set1.year
     year2 = set2.year
     if year1 > year2:
@@ -87,19 +89,19 @@ def is_increasing(set1: Statistics, set2: Statistics, domain: str, key: str) -> 
 
 
     elif domain.lower() == "water":
-        if key.lower() == "Domestic Water Use":
+        if key.lower() == "domestic water use":
             if set1.water.get("Domestic Water Use") < set2.water.get(
                     "Domestic Water Use"):
                 return True
             else:
                 return False
-        elif key.lower() == "Total Delivered Water":
+        elif key.lower() == "total delivered water":
             if (set1.water.get("Total Delivered Water") <
                     set2.water.get("Total Delivered Water")):
                 return True
             else:
                 return False
-        elif key.lower() == "Total Indoor Water Use":
+        elif key.lower() == "total indoor water use":
             if (set1.water.get("Total Indoor Water Use") <
                     set2.water.get("Total Indoor Water Use")):
                 return True
@@ -111,18 +113,18 @@ def is_increasing(set1: Statistics, set2: Statistics, domain: str, key: str) -> 
 
 
     elif domain.lower() == "transportation":
-            if key.lower() == "Parking Permits per Student":
+            if key.lower() == "parking permits per student":
                 if set1.transportation.get("Parking Permits per Student") < set2.transportation.get("Parking Permits per Student"):
                     return True
                 else:
                     return False
-            elif key.lower() == "% of Student Population Living on Campus":
+            elif key.lower() == "% of student population living on campus":
                 if (set1.transportation.get("% of Student Population Living on Campus") <
                         set2.transportation.get("% of Student Population Living on Campus")):
                     return True
                 else:
                     return False
-            elif key.lower() == "CP SLO Transit Riders per Year":
+            elif key.lower() == "cp slo transit riders per year":
                 if (set1.transportation.get("CP SLO Transit Riders per Year") <
                         set2.transportation.get("CP SLO Transit Riders per Year")):
                     return True
@@ -132,7 +134,7 @@ def is_increasing(set1: Statistics, set2: Statistics, domain: str, key: str) -> 
                 print("Invalid Key.")
                 return None
 
-    else:
+    elif domain.lower() == "waste":
         if set1.waste < set2.waste:
             return False
         else:

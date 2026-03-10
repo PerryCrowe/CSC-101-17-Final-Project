@@ -1,5 +1,8 @@
+# Author: Gianella Gazzano
+
 from dataset import reports_by_year
 from function_file import is_increasing
+
 
 def gather_data ():
     print("Would you like to compare two reports or look at one report?")
@@ -15,6 +18,7 @@ def gather_data ():
         if category.lower () == "energy":
             print("BTUs per Square Foot, Sources of Electricity, or % of Campus Vehicle Fleet Using Alternative Fuel?")
             answer = input("")
+            answer = answer.lower().strip()
 
             if answer.lower() == "btus per square foot":
                 print(report.energy["BTUs per Square Foot"])
@@ -32,6 +36,7 @@ def gather_data ():
         if category.lower() == "transportation":
             print ("Parking Permits per Student, % of Student Population Living on Campus, or CP SLO Transit Riders per Year?")
             answer = input("")
+            answer = answer.lower().strip()
 
             if answer.lower() == "parking permits per student":
                 print(report.transportation["Parking Permits per Student"])
@@ -44,13 +49,14 @@ def gather_data ():
         if category.lower() == "water":
             print ("Domestic Water Use, Total Delivered Water, or Total Indoor Water Use?")
             answer = input("")
+            answer = answer.lower().strip()
 
             if answer.lower() == "domestic water use":
                 print( report.water["Domestic Water Use"])
             elif answer.lower() == "total delivered water":
                 print( report.water["Total Delivered Water"])
-            elif answer.lower() == "total indoor water":
-                print( report.water["total indoor Water"])
+            elif answer.lower() == "total indoor water use":
+                print( report.water["Total Indoor Water Use"])
 
     # Waste Category
         if category.lower() == "waste":
@@ -67,15 +73,21 @@ def gather_data ():
 
     #Energy Category
         if category.lower () == "energy":
-            print("BTUs per Square Foot, Sources of Electricity, or % of Campus Vehicle Fleet Using Alternative Fuel?")
+            print("BTUs per Square Foot, Sources of Electricity, or % of Campus Vehicle Fleet Using Alternative Fuel? ")
             answer = input("")
+            answer = answer.lower().strip()
 
             if answer.lower() == "btus per square foot":
-                result = is_increasing(report1, report2, "energy", "BTUs per Square Foot")
+                result = is_increasing(report1, report2, "energy", "BTUs per Square Foot",None)
             elif answer.lower() == "% of campus vehicle fleet using alternative fuel":
-                result = is_increasing(report1, report2, "energy", "% of Campus Vehicle Fleet Using Alternative Fuel")
+                result = is_increasing(report1, report2, "energy", "% of Campus Vehicle Fleet Using Alternative Fuel",None)
             elif answer.lower() == "sources of electricity":
-                sub = input("Renewable, Large Hydro, Nuclear, Natural Gas, Coal, or Unspecified?")
+                sub = input("Renewable, Large Hydro, Nuclear, Natural Gas, Coal, or Unspecified? ")
+                source1 = report1.energy.get("Sources of Electricity")
+                source2 = report2.energy.get("Sources of Electricity")
+                if source1 is None or source2 is None:
+                    print("Energy source data is missing for one of those years.")
+                    return
                 result = is_increasing(report1, report2,"energy","Sources of Electricity", sub.title())
 
             if result is True:
@@ -87,13 +99,14 @@ def gather_data ():
         if category.lower() == "transportation":
             print ("Parking Permits per Student, % of Student Population Living on Campus, or CP SLO Transit Riders per Year?")
             answer = input("")
+            answer = answer.lower().strip()
 
             if answer.lower() == "parking permits per student":
-                result = is_increasing(report1, report2,"transportation","Parking Permits per Student")
+                result = is_increasing(report1, report2,"transportation","Parking Permits per Student",None)
             elif answer.lower() == "% of student population living on campus":
-                result = is_increasing(report1, report2,"transportation","% of Student Population Living on Campus")
+                result = is_increasing(report1, report2,"transportation","% of Student Population Living on Campus", None)
             elif answer.lower() == "cp slo transit riders per year":
-                result = is_increasing(report1, report2,"transportation","CP SLO Transit Riders per Year")
+                result = is_increasing(report1, report2,"transportation","CP SLO Transit Riders per Year",None)
 
             if result is True:
                 print("It increased.")
@@ -104,13 +117,14 @@ def gather_data ():
         if category.lower() == "water":
             print ("Domestic Water Use, Total Delivered Water, or Total Indoor Water Use?")
             answer = input("")
+            answer = answer.lower().strip()
 
             if answer.lower() == "domestic water use":
-                result = is_increasing(report1,report2,"water","Domestic Water Use")
+                result = is_increasing(report1,report2,"water","Domestic Water Use",None)
             elif answer.lower() == "total delivered water":
-                result = is_increasing(report1,report2,"water","Total Delivered Water")
+                result = is_increasing(report1,report2,"water","Total Delivered Water",None)
             elif answer.lower() == "total indoor water":
-                result = is_increasing(report1,report2,"water","Total Indoor Water")
+                result = is_increasing(report1,report2,"water","Total Indoor Water Use",None)
 
             if result is True:
                 print("It increased.")
@@ -118,7 +132,7 @@ def gather_data ():
                 print("It did not increase.")
 
         if category.lower() == "waste":
-            result = is_increasing(report1,report2,"waste")
+            result = is_increasing(report1,report2,"waste","Waste",None)
 
             if result is True:
                 print("It increased.")
@@ -126,9 +140,9 @@ def gather_data ():
                 print("It did not increase.")
 
 
-
 if __name__ == "__main__":
-    gather_data()
+        gather_data()
 
-
-
+    # except Exception as e:
+    #     print(f"Critical error: {e}")
+    #     exit()

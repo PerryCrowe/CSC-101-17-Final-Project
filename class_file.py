@@ -1,4 +1,4 @@
-#import
+# Author Gianella Gazzano
 
 class Statistics:
     # Initializing a new Statistics object
