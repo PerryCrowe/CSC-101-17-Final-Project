@@ -133,3 +133,12 @@ report2018 = Statistics(
              "Total Indoor Water Use": 270}, # acre-feet
     waste = 86.4
 )
+
+reports_by_year = {
+    2008: report2008,
+    2010: report2010,
+    2012: report2012,
+    2014: report2014,
+    2016: report2016,
+    2018: report2018
+}
