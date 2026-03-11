@@ -14,6 +14,7 @@ def gather_data ():
         report = reports_by_year[year]
         category = input("Enter category (energy, transportation, water, waste): ")
 
+
     # Energy Category
         if category.lower () == "energy":
             print("BTUs per Square Foot, Sources of Electricity, or % of Campus Vehicle Fleet Using Alternative Fuel?")
@@ -26,11 +27,14 @@ def gather_data ():
                 print(report.energy["% of Campus Vehicle Fleet Using Alternative Fuel"])
             #Sources of Electricity
             elif answer.lower() == "sources of electricity":
+                sources = report.energy.get("Sources of Electricity")
+                if sources is None:
+                    print("2014 does not have data for sources of electricity.")
+                    return
                 print ("Renewable, Large Hydro, Nuclear, Natural Gas, Coal, or Unspecified?")
                 sub = input("")
-                sources = report.energy["Sources of Electricity"]
-                if sub in sources:
-                    print(sources[sub])
+            if sub in sources:
+                print(sources[sub])
 
     # Transportation Category
         if category.lower() == "transportation":
@@ -82,12 +86,12 @@ def gather_data ():
             elif answer.lower() == "% of campus vehicle fleet using alternative fuel":
                 result = is_increasing(report1, report2, "energy", "% of Campus Vehicle Fleet Using Alternative Fuel",None)
             elif answer.lower() == "sources of electricity":
-                sub = input("Renewable, Large Hydro, Nuclear, Natural Gas, Coal, or Unspecified? ")
                 source1 = report1.energy.get("Sources of Electricity")
                 source2 = report2.energy.get("Sources of Electricity")
                 if source1 is None or source2 is None:
-                    print("Energy source data is missing for one of those years.")
+                    print("2014 does not have data for sources of electricity.")
                     return
+                sub = input("Renewable, Large Hydro, Nuclear, Natural Gas, Coal, or Unspecified? ")
                 result = is_increasing(report1, report2,"energy","Sources of Electricity", sub.title())
 
             if result is True:
