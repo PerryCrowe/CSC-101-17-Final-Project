@@ -180,7 +180,7 @@ def new_data() -> None:
     loop = "y"
     while loop == "y":
         n_prompt = 0
-        for n_data in range(len(data_list)):
+        for n_data in range(len(data_list)-1):
             if (data_list[n_data] == 'energy' or data_list[n_data] =='sources of electricity' or
                 data_list[n_data] == 'transportation' or data_list[n_data] == 'water'):
                 data.append(data_list[n_data])
@@ -190,10 +190,13 @@ def new_data() -> None:
         loop = input("Would you like to input another year? Y/N ").lower()
         if loop.lower() == 'y':
             data.append("")
-    print(data)
     finaldata = '\n'.join(data)
     f.write(finaldata)
     f.close()
+    if ans.lower() == "y":
+        print("Data successfully written.")
+    else:
+        print("Data successfully appended.")
     return None
 
 
