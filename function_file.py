@@ -224,3 +224,4 @@ def read_data() -> dict[int,Statistics]:
                                 waste = float(data[line+19][1]))
             reports_by_year[int(data[line][1])] = report
     return reports_by_year
+
