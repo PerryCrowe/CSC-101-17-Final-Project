@@ -25,7 +25,7 @@ def filter_by_year(data: list[Statistics], year: int) -> Statistics:
         # to compare and the value within.
     # I'm also swapping "key" and "value" with "domain" and "key" just because key is technically a term for dictionaries
         # but if you want to swap them back, feel free!
-def is_increasing(set1: Statistics, set2: Statistics, domain: str, key: str, sub:None) -> bool:
+def is_increasing(set1: Statistics, set2: Statistics, domain: str, key: str, sub:str = "renewable") -> bool:
     year1 = set1.year
     year2 = set2.year
     if year1 > year2:
@@ -39,45 +39,48 @@ def is_increasing(set1: Statistics, set2: Statistics, domain: str, key: str, sub
                 return True
             else:
                 return False
-
 # All sources of Energy
         elif key.lower() == "sources of electricity":
-            if (set1.energy.get("Sources of Electricity").get("Renewable") <
+            if sub.lower() == "renewable":
+                if (set1.energy.get("Sources of Electricity").get("Renewable") <
                     set2.energy.get("Sources of Electricity").get("Renewable")):
-                return True
+                    return True
+                else:
+                    return False
+            elif sub.lower() == "large hydro":
+                if (set1.energy.get("Sources of Electricity").get("Large Hydro") <
+                        set2.energy.get("Sources of Electricity").get("Large Hydro")):
+                    return True
+                else:
+                    return False
+            elif sub.lower() == "nuclear":
+                if (set1.energy.get("Sources of Electricity").get("Nuclear") <
+                        set2.energy.get("Sources of Electricity").get("Nuclear")):
+                    return True
+                else:
+                    return False
+            elif sub.lower() == "natural gas":
+                if (set1.energy.get("Sources of Electricity").get("Natural Gas") <
+                        set2.energy.get("Sources of Electricity").get("Natural Gas")):
+                    return True
+                else:
+                    return False
+            elif sub.lower() == "coal":
+                if (set1.energy.get("Sources of Electricity").get("Coal") <
+                        set2.energy.get("Sources of Electricity").get("Coal")):
+                    return True
+                else:
+                    return False
+            elif sub.lower() == "unspecified":
+                if (set1.energy.get("Sources of Electricity").get("Unspecified") <
+                        set2.energy.get("Sources of Electricity").get("Unspecified")):
+                    return True
+                else:
+                    return False
             else:
-                return False
-        elif key.lower() == "sources of electricity":
-            if (set1.energy.get("Sources of Electricity").get("Large Hydro") <
-                    set2.energy.get("Sources of Electricity").get("Large Hydro")):
-                return True
-            else:
-                return False
-        elif key.lower() == "sources of electricity":
-            if (set1.energy.get("Sources of Electricity").get("Nuclear") <
-                    set2.energy.get("Sources of Electricity").get("Nuclear")):
-                return True
-            else:
-                return False
-        elif key.lower() == "sources of electricity":
-            if (set1.energy.get("Sources of Electricity").get("Natural Gas") <
-                    set2.energy.get("Sources of Electricity").get("Natural Gas")):
-                return True
-            else:
-                return False
-        elif key.lower() == "sources of electricity":
-            if (set1.energy.get("Sources of Electricity").get("Coal") <
-                    set2.energy.get("Sources of Electricity").get("Coal")):
-                return True
-            else:
-                return False
-        elif key.lower() == "sources of electricity":
-            if (set1.energy.get("Sources of Electricity").get("Unspecified") <
-                    set2.energy.get("Sources of Electricity").get("Unspecified")):
-                return True
-            else:
-                return False
-
+                print("Invalid subkey. Valid subkeys are Renewable, Large Hydro, Nuclear, Natural Gas, Coal, and "+
+                      "Unspecified.")
+                return None
         elif key.lower() == "% of campus vehicle fleet using alternative fuel":
             if (set1.energy.get("% of Campus Fleet Using Alternative Fuel") <
                 set2.energy.get("% of Campus Fleet Using Alternative Fuel")):
