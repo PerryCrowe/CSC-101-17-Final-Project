@@ -1,0 +1,119 @@
+year 2008
+energy
+btus 79000
+sources_of_electricity 13.0
+renewable 12.0
+large_hydro 24.0
+nuclear 49.0
+natural_gas 2.0
+coal 0.0
+unspecified 26.0
+percent_vehicle_fleet_using_alternate_fuel 0.31
+transportation
+parking_permits/student 19.5
+percent_students_living_on-campus 545000
+cp_slo_transit_yearly_ridership 550000
+water
+domestic 950
+total 215
+indoor 70.0
+
+year 2010
+energy
+btus 71000
+sources_of_electricity 16.0
+renewable 16.0
+large_hydro 20.0
+nuclear 47.0
+natural_gas 1.0
+coal 0.0
+unspecified 47.0
+percent_vehicle_fleet_using_alternate_fuel 0.22
+transportation
+parking_permits/student 33.0
+percent_students_living_on-campus 620000
+cp_slo_transit_yearly_ridership 600
+water
+domestic 1200
+total 310
+indoor 53.0
+
+year 2012
+energy
+btus 74000
+sources_of_electricity 17.0
+renewable 16.0
+large_hydro 24.0
+nuclear 20.0
+natural_gas 1.0
+coal 24.0
+unspecified 45.0
+percent_vehicle_fleet_using_alternate_fuel 0.20
+transportation
+parking_permits/student 43.0
+percent_students_living_on-campus 665000
+cp_slo_transit_yearly_ridership 550
+water
+domestic 1060
+total 290
+indoor 80.0
+
+year 2014
+energy
+btus 650000
+sources_of_electricity 0
+renewable 0
+large_hydro 0
+nuclear 0
+natural_gas 0
+coal 0
+unspecified 32.0
+percent_vehicle_fleet_using_alternate_fuel 0.22
+transportation
+parking_permits/student 37.5
+percent_students_living_on-campus 670000
+cp_slo_transit_yearly_ridership 705
+water
+domestic 1180
+total 260
+indoor 71.0
+
+year 2016
+energy
+btus 58000
+sources_of_electricity 30.0
+renewable 6.0
+large_hydro 23.0
+nuclear 25.0
+natural_gas 0.0
+coal 17.0
+unspecified 28.0
+percent_vehicle_fleet_using_alternate_fuel 0.18
+transportation
+parking_permits/student 35.0
+percent_students_living_on-campus 759102
+cp_slo_transit_yearly_ridership 452
+water
+domestic 974
+total 210
+indoor 89.8
+
+year 2018
+energy
+btus 57000
+sources_of_electricity 33.0
+renewable 18.0
+large_hydro 27.0
+nuclear 20.0
+natural_gas 0.0
+coal 2.0
+unspecified 29.0
+percent_vehicle_fleet_using_alternate_fuel 0.19
+transportation
+parking_permits/student 33.0
+percent_students_living_on-campus 724647
+cp_slo_transit_yearly_ridership 507
+water
+domestic 830
+total 270
+indoor 86.4
