@@ -1,6 +1,7 @@
 #Author: Perry
 
 from class_file import Statistics
+from pathlib import Path
 
 # Changes:
     # Adjusted variable names in filter_by_year so that they didn't shadow (imitate too closely) the class name.
@@ -141,15 +142,85 @@ def is_increasing(set1: Statistics, set2: Statistics, domain: str, key: str, sub
             return True
 
 
-
-# --- to add: "def new_data( )"? Would be a very long input, unless we tailored the prompt... ---
-def new_data():
-    print("Please confirm the file you want the data to be written to is in the same directory as this file.")
+def new_data() -> None:
+    print("Please confirm the file you want the data to be written to is in the same directory as this file."+
+          "\nA new file will be generated if one is not present.")
     ans = input("Y/N:")
     if ans.lower() == 'n':
+        open("data.txt","x")
         f = open("data.txt","w")
+        data = []
     elif ans.lower() == 'y':
         ans = input("Please input the file name. (Case sensitive): ")
         f = open(ans,"a")
+        data = ["\n"]
     else:
-        print("I can't read that.")
+        print("I can't read that. Terminating process.")
+        return None
+    data_list = ['year','energy','btus','sources_of_electricity','renewable','large_hydro','nuclear','natural_gas',
+                 'coal','unspecified','percent_vehicle_fleet_using_alternate_fuel','transportation',
+                 'parking_permits/student','percent_students_living_on-campus','cp_slo_transit_yearly_ridership',
+                 'water','domestic','total','indoor','waste']
+    prompt_list = ['What year is this dataset for?','[ENERGY] How many BTUs per Square Foot are used?',
+                   '[ENERGY] What percentage of campus electricity is sourced from: Renewable?',
+                   '[ENERGY] What percentage of campus electricity is sourced from: Large Hydro?',
+                   '[ENERGY] What percentage of campus electricity is sourced from: Nuclear?',
+                   '[ENERGY] What percentage of campus electricity is sourced from: Natural Gas?',
+                   '[ENERGY] What percentage of campus electricity is sourced from: Coal?',
+                   '[ENERGY] What percentage of campus electricity is sourced from: Unspecified?',
+                   '[ENERGY] How much of the campus vehicle fleet uses alternative fuel? (Percent)',
+                   '[TRANSPORT.] What is the number of parking permits per student?',
+                   '[TRANSPORT.] What percent of the student population lives on-campus?',
+                   '[TRANSPORT.] What was the ridership count for CP SLO Transit?',
+                   '[WATER] What was the DOMESTIC (Residential, Sports Buildings, Treated Landscaping, Processes) ' +
+                   'water usage in acre-ft?',
+                   '[WATER] What was the TOTAL delivered water in acre-ft?',
+                   '[WATER] What was the INDOOR water use in acre-ft?',
+                   '[WASTE] What was the percentage of solid waste diverted from landfills?']
+    loop = "y"
+    while loop == "y":
+        n_prompt = 0
+        for n_data in range(len(data_list)):
+            if (data_list[n_data] == 'energy' or data_list[n_data] =='sources of electricity' or
+                data_list[n_data] == 'transportation' or data_list[n_data] == 'water'):
+                data.append(data_list[n_data])
+            else:
+                data.append(data_list[n_data]+" "+input(prompt_list[n_prompt]+" "))
+                n_prompt += 1
+        loop = input("Would you like to input another year? Y/N ").lower()
+        if loop.lower() == 'y':
+            data.append("")
+    print(data)
+    finaldata = '\n'.join(data)
+    f.write(finaldata)
+    f.close()
+    return None
+
+
+def read_data() -> dict[int,Statistics]:
+    file = input("Please input the name of the file containing the statistics. (Case sensitive): ")
+    with open(file) as f:
+        data = f.readlines()
+    data = [line.replace('\n','') for line in data]
+    data = [line.split(' ') for line in data]
+    reports_by_year = {}
+    for line in range(len(data)):
+        if 'year' in data[line]:
+            report = Statistics(year =  int(data[line][1]),
+                                energy = {"BTUs per Square Foot":int(data[line+2][1]),
+                                          "Sources of Electricity":{"Renewable":float(data[line+4][1]),
+                                                                    "Large Hydro":float(data[line+5][1]),
+                                                                    "Nuclear":float(data[line+6][1]),
+                                                                    "Natural Gas":float(data[line+7][1]),
+                                                                    "Coal":float(data[line+8][1]),
+                                                                    "Unspecified":float(data[line+9][1])},
+                                          "% of Campus Vehicle Fleet Using Alternative Fuel":float(data[line+10][1])},
+                                transportation = {"Parking Permits per Student":float(data[line+12][1]),
+                                                  "% of Student Population Living on Campus":float(data[line+13][1]),
+                                                  "CP SLO Transit Riders per Year":int(data[line+14][1])},
+                                water = {"Domestic Water Use":int(data[line+16][1]),
+                                         "Total Delivered Water":int(data[line+17][1]),
+                                         "Total Indoor Water Use":int(data[line+18][1])},
+                                waste = float(data[line+19][1]))
+            reports_by_year[int(data[line][1])] = report
+    return reports_by_year
