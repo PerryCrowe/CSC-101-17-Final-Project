@@ -127,7 +127,7 @@ def gather_data ():
                 result = is_increasing(report1,report2,"water","Domestic Water Use",None)
             elif answer.lower() == "total delivered water":
                 result = is_increasing(report1,report2,"water","Total Delivered Water",None)
-            elif answer.lower() == "total indoor water":
+            elif answer.lower() == "total indoor water use":
                 result = is_increasing(report1,report2,"water","Total Indoor Water Use",None)
 
             if result is True:
@@ -146,6 +146,7 @@ def gather_data ():
 
 if __name__ == "__main__":
         gather_data()
+
 
     # except Exception as e:
     #     print(f"Critical error: {e}")
